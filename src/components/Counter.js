@@ -1,38 +1,43 @@
 import React, { Component } from 'react';
+import CountUp from 'react-countup'
 
 export class Counter extends Component {
-    state={
-        currentCount:1,
-    }
-
-    timer= () => {
-    this.setState({ currentCount: this.state.currentCount +1 });
-    }    
-
-    startCounter= () =>{
-        var intervalId = setInterval(this.timer, 100);
-        this.setState({intervalId: intervalId});
-    }
-
-    stopCounter=()=>{
-        clearInterval(this.state.intervalId);
-        this.setState({ currentCount: this.state.currentCount});
-    }
-
   render() {
-    const {currentCount} = this.state;
       return(
-            <div>
-                <h1>{currentCount}</h1>
-                <button
-                label="Start"
-                onClick={this.startCounter}
-                >Start</button>
-
-                <button
-                label="Stop"
-                onClick={this.stopCounter}
-                >Stop</button>
+            <div className="row">
+                <div className="col s4">
+                    <h1 className="large"><CountUp
+                    start={0}
+                    end={97}
+                    duration={2}
+                    separator=" "
+                    decimal=","
+                    delay={0}
+                    >
+                    </CountUp><sup className="per">%</sup></h1>
+                </div>
+                <div className="col s4">
+                    <h1 className="large"><CountUp
+                    start={0}
+                    end={350}
+                    duration={1.5}
+                    separator=" "
+                    decimal=","
+                    delay={0}
+                    >
+                    </CountUp><sup>+</sup></h1>
+                </div>
+                <div className="col s4">
+                    <h1 className="large"><CountUp
+                    start={0}
+                    end={16}
+                    duration={2.75}
+                    separator=" "
+                    decimal=","
+                    delay={0}
+                    >
+                    </CountUp><sup>x</sup></h1>
+                </div>
             </div>
         )
       
